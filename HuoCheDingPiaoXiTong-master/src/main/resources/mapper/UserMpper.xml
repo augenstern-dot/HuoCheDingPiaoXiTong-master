@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="cn.train.dao.IUserTableDao">
+	
+	
+	
+    <select id="getCount" resultType="int">
+		select count(1) from usertable
+	</select>
+	 <select id="getUserByPage" resultType="cn.train.model.UserTable">
+		select * from usertable limit #{0},#{1}
+	</select>
+     <update id="updateUserTab" parameterType="cn.train.model.UserTable" >
+        update usertable set state=#{state} where uname=#{uname}
+    </update>
+    <select id="getUser" resultType="cn.train.model.UserTable">
+		select * from usertable where uname=#{uname}
+	</select>
+
+</mapper>	
